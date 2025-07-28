@@ -1,4 +1,13 @@
-/**
- * TODO: LAB2
- * Implement theme provider and use event bus or zustand or whatver statemanagement lib you need to change the app theme
- */
+"use client";
+
+import { useThemeStore } from "./theme.store";
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const theme = useThemeStore((state) => state.theme);
+
+  return (
+    <div className={theme} data-theme={theme}>
+      {children}
+    </div>
+  );
+}
